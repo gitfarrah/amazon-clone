@@ -25,7 +25,7 @@ const today = dayjs();
 const deliveryDate = today.add(7, "days");
 deliveryDate.format("dddd, MMMM D");
 
-export function renderOrederSummary() {
+export function renderOrderSummary() {
   let cartSummaryHTML = "";
 
   cart.forEach((cartItem) => {
@@ -141,7 +141,7 @@ export function renderOrederSummary() {
 
       renderCheckoutHeader();
 
-      renderOrederSummary();
+      renderOrderSummary();
 
       updateCartQuantity();
 
@@ -205,7 +205,7 @@ export function renderOrederSummary() {
     element.addEventListener("click", () => {
       const { productId, deliveryOptionId } = element.dataset;
       updateDeliveryOption(productId, deliveryOptionId);
-      renderOrederSummary();
+      renderOrderSummary();
       renderPaymentSummary();
     });
   });
