@@ -1,11 +1,22 @@
 export const orders = JSON.parse(localStorage.getItem('orders')) || [];
 
-
-export function addOrder(order) {
+export function addOrder (order) {
     orders.unshift(order);
     saveToStorage();
 }
 
-function saveToStorage(){
+function saveToStorage() {
     localStorage.setItem('orders', JSON.stringify(orders));
+}
+
+export function getOrder(orderId) {
+    let matchingOrder;
+
+    orders.forEach((order) => {
+        if (orderId === order.id) {
+            matchingOrder = order;
+        }
+    });
+
+    return matchingOrder;
 }
